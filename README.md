@@ -26,8 +26,20 @@ Roll a pair of dice randomly
 #### About This App
 Dicee app but added autoLayout feature
 #### Skills acquired during this module
-- Size classes adn orientation
-- Understand Constraints
-- Learn about Alignment and Pinning
-- Use Containers for more fine grained control
-- Learn about Stack View
+- 👐Size classes and orientation
+- 👮‍♀️Understand Constraints
+- 📌Learn about Alignment and Pinning
+- 💼Use Containers for more fine grained control
+- 📚Learn about Stack View
+
+## Project 4 - Xylophone
+#### About This App
+Simple xylophone playing app
+#### Skills acquired during this module
+- 👷‍♂️Setup the Skeleton Proejct
+- 📃Figure out how to play sound using Apple Documentation and StackOverflow
+- 💻Learn about Swift Functions
+- 🔗Linking multiple elements to on IBAction
+- 📥Creating functions with inputs
+- 🎼Play different sounds for different buttons
+- 📌Learn about Alignment and Pinning
