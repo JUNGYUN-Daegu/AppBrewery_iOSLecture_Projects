@@ -56,3 +56,12 @@ Timer for different styles of boiled egg
 - ⁉️Swift Optionals
 - ⏳Create a UIProgressView to keep track of time
 - 🐞How to Debug Your App
+
+## Project 6 - Quizzler
+#### About This App
+Quiz app, showing quiz questions, checking the answer, and returning your score
+#### Skills acquired during this module
+- 👷‍♂️Learn about Swift Structures
+- 🧬Learn about design patterns and use the Model View Controller pattern.
+- 📥Learn about Swift Functions that can have outputs.
+- 🤔Understand immutability
