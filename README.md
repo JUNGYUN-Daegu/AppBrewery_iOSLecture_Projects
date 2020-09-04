@@ -65,3 +65,11 @@ Quiz app, showing quiz questions, checking the answer, and returning your score
 - 🧬Learn about design patterns and use the Model View Controller pattern.
 - 📥Learn about Swift Functions that can have outputs.
 - 🤔Understand immutability
+
+## Project 7 - Destini (Challenge Project)
+#### About This App
+Story based game. Depending choices you made, the end of this game will vary
+#### Main skills used in this challenge Project
+- Swift Structures
+- Model View Controller pattern
+- Mutating function
