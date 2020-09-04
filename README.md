@@ -1,4 +1,6 @@
 # AppBrewery_iOSLecture_Projects
+> 2020.07.07 ~
+> Lecturer: Dr. Angela Yu
 
 ## Project 1 - I Am Rich
 #### About This App
@@ -43,3 +45,14 @@ Simple xylophone playing app
 - 📥Creating functions with inputs
 - 🎼Play different sounds for different buttons
 - 📌Learn about Alignment and Pinning
+
+## Project 5 - EggTimer
+#### About This App
+Timer for different styles of boiled egg
+#### Skills acquired during this module
+- 🤔Swift IF/ELSE Statements
+- 💻Swift Switch Statements
+- 📚Swift Dictionaries
+- ⁉️Swift Optionals
+- ⏳Create a UIProgressView to keep track of time
+- 🐞How to Debug Your App
