@@ -73,3 +73,15 @@ Story based game. Depending choices you made, the end of this game will vary
 - Swift Structures
 - Model View Controller pattern
 - Mutating function
+
+## Project 8 - BMI Calculaor
+#### About This App
+BMI Calculator, set your height, weight and get health advice
+#### Skills acquired during this module
+- 🤔Learn to use UISlider
+- ✔️Create Swift Classes
+- 😃Understand the difference between Classes and Structs
+- 💻Learn to create UI programmatically without Storyboards
+- 🖼Create multi-screen apps by learning about segues
+- ⁉️Learn about advanced features of Optionals, including Optional Binding, Optional Chaining
+- 👩‍💻Learn to use Color Literals to select colours from a palette
