@@ -113,7 +113,6 @@ class TodoListViewController: UITableViewController {
     
 //MARK: - Model Manupulation Method
     func saveItems() {
-        let encoder = PropertyListEncoder()
         do {
             let data = try encoder.encode(itemArray)
             try data.write(to:dataFilePath!)
