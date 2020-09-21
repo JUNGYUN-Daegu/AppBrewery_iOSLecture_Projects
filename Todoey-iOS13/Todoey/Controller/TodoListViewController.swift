@@ -45,11 +45,14 @@ class TodoListViewController: UITableViewController {
     //MARK: - TableView Delegate Methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
+
+//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
-//        itemArray[indexPath.row].setValue("Completed", forKey: "title")
-        
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
-        
+        //중요:데이터 지울 때 순서1: 컨텍스트에서 permanent data 삭제
+        //순서2: 테이블뷰의 데이터 소스인 현재 itemArray에 있는 요소를 제거
+        //순서가 바뀌면 Array out of range 오류가 뜬다.
+        context.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
         saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
