@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class TodoListViewController: UITableViewController {
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var itemArray = [Item]()
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -21,6 +22,8 @@ class TodoListViewController: UITableViewController {
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         loadItems()
+        
+        searchBar.delegate = self
     }
 
     //MARK: - Tableview Datasource Methods
@@ -46,13 +49,13 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(tableView.cellForRow(at: indexPath)?.textLabel?.text ?? "")
 
-//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
         //중요:데이터 지울 때 순서1: 컨텍스트에서 permanent data 삭제
         //순서2: 테이블뷰의 데이터 소스인 현재 itemArray에 있는 요소를 제거
         //순서가 바뀌면 Array out of range 오류가 뜬다.
-        context.delete(itemArray[indexPath.row])
-        itemArray.remove(at: indexPath.row)
+//        context.delete(itemArray[indexPath.row])
+//        itemArray.remove(at: indexPath.row)
         saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
@@ -86,7 +89,7 @@ class TodoListViewController: UITableViewController {
     }
     
     
-//MARK: - Model Manupulation Method
+    //MARK: - Model Manupulation Method
     func saveItems() {
         do {
           try context.save()
@@ -97,6 +100,7 @@ class TodoListViewController: UITableViewController {
     }
     
     func loadItems() {
+        //Before you request something from Data base, you need to make a request instance.
         //You must specify the data type of the entity you're trying to request
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         do {
@@ -104,7 +108,33 @@ class TodoListViewController: UITableViewController {
         } catch {
             print("Error fetching data \(error)")
         }
+    }
+    
+}
+//MARK: - Search Bar Delegate
+extension TodoListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request:NSFetchRequest<Item> = Item.fetchRequest()
         
+        //NSPredicate is a foundation class that specifies how data should be fetched or filtered. It's essentially a query language.
+        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+       //[cd]: Case and Diacritic sensitive set into false
+        
+        request.predicate = predicate
+        
+        //to sort out the result
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        
+        //sortDescroptor"S": because it is an array of sortDescriptor
+        request.sortDescriptors = [sortDescriptor]
+        
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data \(error)")
+        }
+        
+        tableView.reloadData()
     }
 }
 
