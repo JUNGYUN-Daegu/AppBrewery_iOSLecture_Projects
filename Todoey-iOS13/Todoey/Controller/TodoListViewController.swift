@@ -17,8 +17,10 @@ class TodoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //to view SQLite database backend for Core Data
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-//        loadItems()
+        
+        loadItems()
     }
 
     //MARK: - Tableview Datasource Methods
@@ -48,7 +50,6 @@ class TodoListViewController: UITableViewController {
         saveItems()
         
         tableView.deselectRow(at: indexPath, animated: true)
-        tableView.reloadData()
     }
 
     //MARK: - Add New Items
@@ -67,8 +68,6 @@ class TodoListViewController: UITableViewController {
             self.itemArray.append(newItem)
             
             self.saveItems()
-            
-            self.tableView.reloadData()
         }
         
         alert.addAction(action)
@@ -78,29 +77,28 @@ class TodoListViewController: UITableViewController {
         }
         
         present(alert, animated: true, completion: nil)
-        
     }
     
     
 //MARK: - Model Manupulation Method
     func saveItems() {
         do {
-            try context.save()
+          try context.save()
         } catch {
-            print("Error saving context \(error)")
+           print("Error saving context \(error)")
         }
         self.tableView.reloadData()
     }
     
-//    func loadItems() {
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//            itemArray = try decoder.decode([Item].self, from: data)
-//            } catch {
-//                print("Error decoding")
-//            }
-//        }
-//    }
+    func loadItems() {
+        //You must specify the data type of the entity you're trying to request
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+            itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data \(error)")
+        }
+        
+    }
 }
 
