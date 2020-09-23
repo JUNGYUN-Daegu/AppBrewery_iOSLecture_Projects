@@ -90,6 +90,7 @@ class TodoListViewController: UITableViewController {
     
     
     //MARK: - Model Manupulation Method
+    
     func saveItems() {
         do {
           try context.save()
@@ -101,7 +102,6 @@ class TodoListViewController: UITableViewController {
     
     //Argument followed by "=" : setting a default value of argument
     func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
-      
         do {
             itemArray = try context.fetch(request)
         } catch {
@@ -111,6 +111,7 @@ class TodoListViewController: UITableViewController {
     }
 }
 //MARK: - Search Bar Delegate
+
 extension TodoListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request:NSFetchRequest<Item> = Item.fetchRequest()
