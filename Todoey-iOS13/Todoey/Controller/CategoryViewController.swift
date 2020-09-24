@@ -17,7 +17,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadCategory()
+        loadCategories()
     }
     
     //MARK: - TableView Datasource Methods
@@ -28,10 +28,8 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let category = categories[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath)
-        cell.textLabel?.text = category.name
+        cell.textLabel?.text = categories[indexPath.row].name
         return cell
     }
     
@@ -43,23 +41,30 @@ class CategoryViewController: UITableViewController {
     
     //MARK: - Data Manipulation Methods
     
-    func saveCategory() {
+    func saveCategories() {
         do {
            try context.save()
         } catch {
             print ("Error saving context : \(error)")
         }
-        self.tableView.reloadData()
+        //왜 self 필요 없을까
+        tableView.reloadData()
     }
     
-    func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest()) {
+    func loadCategories() {
+       
+        //get back all of the NSManagedObjects that were created using the category entity
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
         do {
-            try categories = context.fetch(request)
+            categories = try context.fetch(request)
         } catch {
-            print ("Error fetching context : \(error)")
+            print("Error loading categories \(error)")
         }
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
+    
+    
+    //MARK: - Add New Categories
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
@@ -70,12 +75,12 @@ class CategoryViewController: UITableViewController {
             newCategory.name = textField.text!
             
             self.categories.append(newCategory)
-            self.saveCategory()
+            self.saveCategories()
         }
         alert.addAction(action)
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create New Category"
-            textField = alertTextField
+        alert.addTextField { (field) in
+            field.placeholder = "Create New Category"
+            textField = field
         }
         present(alert, animated: true, completion: nil)
     }
