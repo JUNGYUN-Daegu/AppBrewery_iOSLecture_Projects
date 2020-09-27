@@ -85,3 +85,11 @@ BMI Calculator, set your height, weight and get health advice
 - 🖼Create multi-screen apps by learning about segues
 - ⁉️Learn about advanced features of Optionals, including Optional Binding, Optional Chaining
 - 👩‍💻Learn to use Color Literals to select colours from a palette
+
+## Project 9 - Todoey
+#### About This App
+To do list app. Make and Manage your own to do list and sort by customized categories
+#### Skills acquired during this module
+- Persistent Data
+- User Default and Singleton Pattern
+- Core Data
