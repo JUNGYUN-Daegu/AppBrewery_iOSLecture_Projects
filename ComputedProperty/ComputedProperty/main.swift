@@ -8,13 +8,13 @@
 import Foundation
 
 var pizzaInInches: Int = 16 {
-    // will execute right before value set
     willSet {
+        print(pizzaInInches) // use current variable
         print(newValue)
     }
-    // will execute right after value set
     didSet {
         print(oldValue)
+        print(pizzaInInches) // use current variable
     }
 }
 pizzaInInches = 8
