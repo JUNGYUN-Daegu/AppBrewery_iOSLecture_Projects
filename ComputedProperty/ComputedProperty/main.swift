@@ -7,7 +7,18 @@
 
 import Foundation
 
-let pizzaInInches: Int = 16
+var pizzaInInches: Int = 16 {
+    // will execute right before value set
+    willSet {
+        print(newValue)
+    }
+    // will execute right after value set
+    didSet {
+        print(oldValue)
+    }
+}
+pizzaInInches = 8
+
 var numberOfPeople: Int = 12
 let slicesPerPerson: Int = 4
 
