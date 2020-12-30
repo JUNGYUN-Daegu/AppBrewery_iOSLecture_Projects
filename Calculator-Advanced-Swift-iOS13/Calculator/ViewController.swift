@@ -9,17 +9,21 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var isFinishedTypingNumber = true
+    
     @IBOutlet weak var displayLabel: UILabel!
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
+        isFinishedTypingNumber = true
     }
 
     @IBAction func numButtonPressed(_ sender: UIButton) {
-        displayLabel.text?.append(sender.currentTitle!)
-        if let stringValue = displayLabel.text {
-            if stringValue.starts(with: "0") {
-                displayLabel.text?.removeFirst()
+        if let numValue = sender.currentTitle {
+            if isFinishedTypingNumber == true {
+                displayLabel.text = numValue
+                isFinishedTypingNumber = false
+            } else {
+                displayLabel.text = displayLabel.text! + numValue
             }
         }
     }
