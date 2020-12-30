@@ -74,7 +74,7 @@ Story based game. Depending choices you made, the end of this game will vary
 - Model View Controller pattern
 - Mutating function
 
-## Project 8 - BMI Calculaor
+## Project 8 - BMI Calculator
 #### About This App
 BMI Calculator, set your height, weight and get health advice
 #### Skills acquired during this module
@@ -90,6 +90,14 @@ BMI Calculator, set your height, weight and get health advice
 #### About This App
 To do list app. Make and Manage your own to do list and sort by customized categories
 #### Skills acquired during this module
-- Persistent Data
-- User Default and Singleton Pattern
-- Core Data
+- 🤥Persistent Data
+- 💧User Default and Singleton Pattern
+- 📲Core Data
+
+## Project 10 - Calculator-Advanced
+#### About This App
+Use advanced concept of Swift language to realize functionalities of calculator
+#### Skills acquired during this module
+- Computed properties
+- Struct vs Class
+- etc.
