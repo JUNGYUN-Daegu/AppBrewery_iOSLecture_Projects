@@ -98,6 +98,7 @@ To do list app. Make and Manage your own to do list and sort by customized categ
 #### About This App
 Use advanced concept of Swift language to realize functionalities of calculator
 #### Skills acquired during this module
+- 🛂Swift Access Levels
 - Computed properties
 - Struct vs Class
 - etc.
