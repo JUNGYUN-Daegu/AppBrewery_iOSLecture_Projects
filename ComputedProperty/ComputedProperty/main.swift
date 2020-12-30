@@ -13,11 +13,13 @@ var pizzaInInches: Int = 16 {
         print(newValue)
     }
     didSet {
-        print(oldValue)
-        print(pizzaInInches) // use current variable
+        if pizzaInInches > 18 {
+            print("Invalid size specified, pizzaInInches set to 18.")
+            pizzaInInches = 18
+        }
     }
 }
-pizzaInInches = 8
+pizzaInInches = 33
 
 var numberOfPeople: Int = 12
 let slicesPerPerson: Int = 4
