@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var isFinishedTypingNumber = true
+    private var isFinishedTypingNumber = true
     
     @IBOutlet weak var displayLabel: UILabel!
     
