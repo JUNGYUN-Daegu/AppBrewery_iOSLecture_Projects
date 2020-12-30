@@ -16,7 +16,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func numButtonPressed(_ sender: UIButton) {
-        print(sender.currentTitle!)
+        displayLabel.text?.append(sender.currentTitle!)
+        if let stringValue = displayLabel.text {
+            if stringValue.starts(with: "0") {
+                displayLabel.text?.removeFirst()
+            }
+        }
     }
 }
 
